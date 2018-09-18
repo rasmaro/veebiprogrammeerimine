@@ -3,6 +3,12 @@
 	$firstName = "Rasmus";
 	$lastName = "Aron";
 	$dateToday = date("d.m.Y");
+	$weekdayToday = date("N");
+	$weekdayNamesET = ["Esmaspäev", "Teisipäev", "Kolmapäev", "Neljapäev", "Reede", "Laupäev", "Pühapäev"];
+	//var_dump($weekdayNamesET);
+	//echo $weekdayNamesET[1];
+	//echo $weekdayNamesET;
+	//echo $weekdayToday;
 	$hourNow = date("G");
 	$partOfDay = "";
 	if ($hourNow < 8){
@@ -14,6 +20,12 @@
 	if ($hourNow > 16){
 		$partOfDay = "Vaba aeg";
 	}
+	//Juhusliku pildi valimine
+	$picURL = "http://www.cs.tlu.ee/~rinde/media/fotod/TLU_600x400/tlu_";
+	$picEXT = ".jpg";
+	$picNUM = mt_rand(2,43);
+	//echo $picNUM;
+	$picFILE = $picURL .$picNUM .$picEXT
 ?>
 
 <!DOCTYPE html>
@@ -35,13 +47,16 @@
    </h1>
    <p>Minu <a href = "https://www.tlu.ee/en" >TLÜ</a>  </p>
    <?php 
-	echo"<p>Tänane kuupäev on: ". $dateToday .".</p> \n";
+	//echo"<p>Tänane kuupäev on: ". $dateToday .".</p> \n";
+	echo"<p>Täna on " .$weekdayNamesET[$weekdayToday - 1].", " .$dateToday .".</p> \n";
 	echo"<p>Lehe avamise hetkel oli kell ".date("H:i:s") .", käes oli " .$partOfDay .".</p>\n";
    ?>
    
    <p> Listen. Strange women lying in ponds distributing swords is no basis for a system of government.<br /> Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony.<br />You can't expect to wield supreme executive power just 'cause some watery tart threw a sword at you! <br />I mean, if I went around saying I was an emperor just because some moistened bint had lobbed a scimitar at me, they'd put me away!</p>
 
-   <img src="../../~rinde/veebiprogrammeerimine2018s/tlu_terra_600x400_2.jpg" alt="TLÜ Terra õppehoone" align = "right" img{border-radius: 50%;}>
-   <p>Minu sõber teeb ka <a href = "../../~raitvai" target ="_blank">veebi<a></p>
+   <p>Teised Lehed: <a href ="photo.php">photo.php</a></p>
+   <p>Teised Lehed: <a href ="page.php">page.php</a></p>
+   <img src="<?php echo $picFILE; ?>" alt="TLÜ Terra õppehoone" align = "right" >
+   <p>Minu sõber teeb ka <a href = "../../../~raitvai" target ="_blank">veebi<a></p>
    </body>
 </html>
