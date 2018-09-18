@@ -36,8 +36,22 @@
    <input type="text" name="firstname">
    <label> Perekonnanimi: </label>
    <input type="text" name="lastname">
+   <label> Sünniaasta </label>
+   <input type="number" min="1914" max="2000" value="1999" name="birthyear">
    <input type="submit" name="submitUserData" value="Saada andmed">
    </form>
+  <hr>
+  <?php
+  if(isset($_POST["birthyear"])){
+	  echo "<p> Olete elanud järgnevatel aastatel: </p>";
+	  echo "<ul> \n";
+	  for($i = $_POST["birthyear"]; $i <= date("Y"); $i++){
+		  echo"<li>".$i."</li>\n";
+	  }
+	  echo "</ul>\n";
+  }
+  ?>
+  
   
 </body>   
 </html>
