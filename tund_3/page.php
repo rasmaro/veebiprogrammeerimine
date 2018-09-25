@@ -2,6 +2,10 @@
 	//echo "See on minu PHP!";
 	$firstName = "Tundmatu";
 	$lastName = "Kodanik";
+	$monthNames = ["Jaanuar", "Veebruar", "Märts", "Aprill", "Mai", "Juuni", "Juuli", "August", "September", "Oktoober", "November", "Detsember"];
+	$currentMonth = date('m');
+	$amountMonth = count($monthNames);
+	
 	//püüan posti kinni
 	//var_dump($_POST);
 	if (isset($_POST["firstname"])){
@@ -10,6 +14,9 @@
 	if (isset($_POST["lastname"])){
 		$lastName = $_POST["lastname"];
 	}
+	if (isset($_POST["birthyear"])){
+ 		$birthYear = $_POST["birthyear"];
+ 	}
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +45,18 @@
    <input type="text" name="lastname">
    <label> Sünniaasta </label>
    <input type="number" min="1914" max="2000" value="1999" name="birthyear">
+   <label> Synnikuu </label>
+   <select name="birthMonth">
+			<?php
+ 				for ($i = 1; $i <= $amountMonth; $i++){
+					if($i == $currentMonth){
+						echo '<option value="'. $i . '" selected>' . $monthNames[$i - 1] . '</option>' . "\n";
+					} else {
+						echo '<option value="'. $i . '">' . $monthNames[$i - 1] . '</option>' . "\n";
+					}
+				}
+			?>
+			</select>
    <input type="submit" name="submitUserData" value="Saada andmed">
    </form>
   <hr>

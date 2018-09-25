@@ -2,9 +2,12 @@
 	//echo "See on minu PHP!";
 	$firstName = "Rasmus";
 	$lastName = "Aron";
-	$dateToday = date("d.m.Y");
+	$dateToday = date("d");
+	$dateTodayYear = date("Y");
 	$weekdayToday = date("N");
 	$weekdayNamesET = ["Esmaspäev", "Teisipäev", "Kolmapäev", "Neljapäev", "Reede", "Laupäev", "Pühapäev"];
+	$monthToday = date("n");
+	$monthNames = ["Jaanuar", "Veebruar", "Märts", "Aprill", "Mai", "Juuni", "Juuli", "August", "September", "Oktoober", "November", "Detsember"];
 	//var_dump($weekdayNamesET);
 	//echo $weekdayNamesET[1];
 	//echo $weekdayNamesET;
@@ -48,7 +51,7 @@
    <p>Minu <a href = "https://www.tlu.ee/en" >TLÜ</a>  </p>
    <?php 
 	//echo"<p>Tänane kuupäev on: ". $dateToday .".</p> \n";
-	echo"<p>Täna on " .$weekdayNamesET[$weekdayToday - 1].", " .$dateToday .".</p> \n";
+	echo"<p>Täna on " .$weekdayNamesET[$weekdayToday - 1]."  ".$dateToday."  ".$monthNames[$monthToday -1]." " .$dateTodayYear.".</p> \n";
 	echo"<p>Lehe avamise hetkel oli kell ".date("H:i:s") .", käes oli " .$partOfDay .".</p>\n";
    ?>
    
